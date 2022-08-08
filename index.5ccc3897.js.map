@@ -1,1 +1,0 @@
-{"mappings":"AAAAA,MAAM,iCAAiCC,MAAKC,GAAKA,EAAEC,SAAQF,KAAKG,QAAQC","sources":["src/index.js"],"sourcesContent":["fetch('http://localhost:3000/profile').then(r => r.json()).then(console.log)"],"names":["fetch","then","r","json","console","log"],"version":3,"file":"index.5ccc3897.js.map"}
