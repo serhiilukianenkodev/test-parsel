@@ -1,3 +1,5 @@
+
+import './js/merge-interval.js'
 const BASE_URL = 'http://localhost:3000';
 
 // function fetchPosts (){
@@ -11,25 +13,25 @@ const BASE_URL = 'http://localhost:3000';
 
 // fetchPostById(1)
 
-const newPost = {
-    "title": "test 22",
-    "author": "Serhii dev",
-}
+// const newPost = {
+//     "title": "test 22",
+//     "author": "Serhii dev",
+// }
 
-function addPost (post){
-const options = {
-    method: 'POST',
-    body: JSON.stringify(post),
-    headers: {
-        'Content-Type': 'application/json',
-    },
-};
+// function addPost (post){
+// const options = {
+//     method: 'POST',
+//     body: JSON.stringify(post),
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+// };
 
-return fetch(`${BASE_URL}/posts/`, options).then(r => r.json())
+// return fetch(`${BASE_URL}/posts/`, options).then(r => r.json())
 
-}
+// }
 
-addPost(newPost).then(console.log).catch(console.log)
+// addPost(newPost).then(console.log).catch(console.log)
 
 // function updatePostById(update, postId) {
 //     const options = {
