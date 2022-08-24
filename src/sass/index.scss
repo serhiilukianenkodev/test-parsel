@@ -1,2 +1,13 @@
 @import './common';
 @import './example';
+
+
+.pagination{
+    display: flex;
+    list-style: none;
+    text-align: center;
+}
+
+.current{
+    background-color: tomato;
+}

@@ -32,50 +32,50 @@
 
 // brick wall -> 554 leetCode
 
-var lemonadeChange = function(bills) {
-    const map = {
-        5: 0,
-        10: 0,
-    };
+// var lemonadeChange = function(bills) {
+//     const map = {
+//         5: 0,
+//         10: 0,
+//     };
 
-    let result = true;
+//     let result = true;
 
-    bills.forEach(element => {
+//     bills.forEach(element => {
 
-        switch (element) {
-            case 5:
-                map[5] += 1;
-                break;
+//         switch (element) {
+//             case 5:
+//                 map[5] += 1;
+//                 break;
             
-            case 10:
-                if (map[5] === 0)  return result =  false;
-                map[5] -= 1;
-                map[10] += 1;
-                break;
+//             case 10:
+//                 if (map[5] === 0)  return result =  false;
+//                 map[5] -= 1;
+//                 map[10] += 1;
+//                 break;
                 
-            case 20:
-                if (map[10] !== 0 && map[5] !== 0) {
-                    map[10] -= 1;
-                    map[5] -= 1;
-                    break;
-                }
+//             case 20:
+//                 if (map[10] !== 0 && map[5] !== 0) {
+//                     map[10] -= 1;
+//                     map[5] -= 1;
+//                     break;
+//                 }
 
-                if (map[5] < 3) return result =  false;
+//                 if (map[5] < 3) return result =  false;
 
-                map[5] -= 3;
+//                 map[5] -= 3;
                 
-                break;
-        }
+//                 break;
+//         }
 
-        console.log(map);
-    });
+//         console.log(map);
+//     });
    
-    return result;
+//     return result;
 
-};
+// };
 
-const bills = [5,5,5,5,20,20,5,5,20,5]
+// const bills = [5,5,5,5,20,20,5,5,20,5]
 
-console.log(lemonadeChange(bills));
+// console.log(lemonadeChange(bills));
 
-console.log(' new hola');
+// console.log(' new hola');
