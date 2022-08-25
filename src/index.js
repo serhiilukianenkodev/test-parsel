@@ -35,6 +35,9 @@ function createArr(start, end) {
     if (res[res.length - 1] < end) res.push(0,end)
     if (res[res.length - 1] === end - 2) res.push(end - 1)
     if (res[res.length - 1] === end - 3) res.push(end - 2)
+
+    res.unshift('<')
+    res.push('>')
     return res;
 }
 
@@ -42,18 +45,30 @@ function createArr(start, end) {
 function renderPagination(elems, current) {
     const markup = elems.map((index) => {
         if (index === 0) {
-    return `<li ><button type="button" data-btn="" disabled>...</button></li>`    
+    return `<li ><div class = "empryBox">...</div></li>`    
         }
-        return `<li ><button type="button" class = "${index === current ? 'current': ''}" data-btn="${index}">${index}</button></li>`
+
+    // if (index === '<' || index === '>') return 
+    
+    return `<li ><button type="button" class = "${index === current ? 'current' : ''}" data-btn="${index}">${index}</button></li>`
     }).join('')
 
+    // const prewBtnMarkup = 
     paginationEl.innerHTML = markup
 }
 
 
 function onpaginationClick(e) {
-    console.log('e.target', e.target.dataset.btn);
+    // console.log(e.target.nodeName);
+    if (e.target.nodeName === 'DIV' || e.target.nodeName !== 'BUTTON') return
+    
+    if (e.target.classList.contains('current')) return
+
+    // console.dir(e.target.classList.contains('current'));
+    // console.log('e.target', e.target.dataset.btn);
     const nextPage = +e.target.dataset.btn;
+
+    
 // renderPagination(e.target.dataset.btn, lastPage)
     renderPagination(createArr(nextPage, lastPage), nextPage)
 
