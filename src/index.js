@@ -64,13 +64,27 @@ function onpaginationClick(e) {
     
     if (e.target.classList.contains('current')) return
 
+
     // console.dir(e.target.classList.contains('current'));
     // console.log('e.target', e.target.dataset.btn);
-    const nextPage = +e.target.dataset.btn;
+    let nextPage;
 
-    
+    if (e.target.dataset.btn !== '<' && e.target.dataset.btn !== '<') nextPage = +e.target.dataset.btn;
+
+    if (e.target.dataset.btn === '<' && currentPage >1) {
+        nextPage = currentPage -=1
+    }
+
+    if (e.target.dataset.btn === '>' && currentPage < lastPage) {
+        nextPage = currentPage +=1
+    }
+
+    console.log(nextPage);
+
 // renderPagination(e.target.dataset.btn, lastPage)
     renderPagination(createArr(nextPage, lastPage), nextPage)
+
+    currentPage = nextPage
 
     // paginationEl.addEventListener('click', onpaginationClick)    
 
