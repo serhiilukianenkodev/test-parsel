@@ -1,23 +1,10 @@
 const paginationEl = document.querySelector('.pagination')
 
-// for (let j = 1; j <= 20; j++) {
-// console.log(createArr(j,20), j);
-    
-// }
 let currentPage = 1
 let lastPage = 200
 
 renderPagination(createArr(currentPage, lastPage), currentPage)
-paginationEl.addEventListener('click', onpaginationClick)    
-
-
-// renderPagination(currentPage, lastPage)
-
-// function renderPagination(currentPage, lastPage) {
-// // createArr(currentPage,lastPage)
-// renderPagination(createArr(currentPage, lastPage), currentPage)
-// paginationEl.addEventListener('click', onpaginationClick)    
-// }
+paginationEl.addEventListener('click', onPaginationClick)    
 
 function createArr(start, end) {
     const res = [];
@@ -47,47 +34,39 @@ function renderPagination(elems, current) {
         if (index === 0) {
     return `<li ><div class = "empryBox">...</div></li>`    
         }
-
-    // if (index === '<' || index === '>') return 
     
     return `<li ><button type="button" class = "${index === current ? 'current' : ''}" data-btn="${index}">${index}</button></li>`
     }).join('')
 
-    // const prewBtnMarkup = 
     paginationEl.innerHTML = markup
 }
 
 
-function onpaginationClick(e) {
+function onPaginationClick(e) {
     // console.log(e.target.nodeName);
     if (e.target.nodeName === 'DIV' || e.target.nodeName !== 'BUTTON') return
     
     if (e.target.classList.contains('current')) return
 
-
-    // console.dir(e.target.classList.contains('current'));
-    // console.log('e.target', e.target.dataset.btn);
     let nextPage;
-
+    
     if (e.target.dataset.btn !== '<' && e.target.dataset.btn !== '<') nextPage = +e.target.dataset.btn;
+    
+    if (e.target.dataset.btn === '<' && currentPage === 1) return
+    if (e.target.dataset.btn === '>' && currentPage === lastPage) return
 
-    if (e.target.dataset.btn === '<' && currentPage >1) {
-        nextPage = currentPage -=1
+    if (e.target.dataset.btn === '<' && currentPage > 1) {
+        nextPage = currentPage -= 1
     }
-
+    
     if (e.target.dataset.btn === '>' && currentPage < lastPage) {
-        nextPage = currentPage +=1
+        nextPage = currentPage += 1
     }
-
-    console.log(nextPage);
-
-// renderPagination(e.target.dataset.btn, lastPage)
-    renderPagination(createArr(nextPage, lastPage), nextPage)
-
+    
     currentPage = nextPage
-
-    // paginationEl.addEventListener('click', onpaginationClick)    
-
+    // console.log('currentPage', currentPage);
+    console.log('nextPage',nextPage);
+    renderPagination(createArr(nextPage, lastPage), nextPage)
 
 }
 

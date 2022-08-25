@@ -16,15 +16,25 @@
     height: 40px;
     border: none;
     border-radius: 5px;
-    background-color: #E5E5E5;
+    // background-color: #E5E5E5;
+    background-color: white;    
+    font-size: 12px;
+}
+
+.empryBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pagination [data-btn]:hover, 
 .pagination [data-btn]:hover{
-    background-color: tomato;
+    background-color: #FF6B08;
 }
 
 
 .current{
-    background-color: tomato;
+    color: #FFFFFF;
+;
+    background-color: #FF6B08;
 }
